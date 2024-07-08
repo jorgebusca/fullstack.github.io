@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}{% endblock %} </title>
+    {% load static %}
+    <!-- Estilos y fuentes del template  -->
+    <link href="{% static 'core/css/css.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'core/css/css.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navegación -->
+    <header class="header">
+      <div class="navbar">
+          <a href="index.html"><img src="core/imagenes/Turismo.png" alt="Logo de la Empresa" class="navbar__logo"></a>
+          <a href="#menu" class="navbar__menu">
+              <img class="navbar__icon" src="core/imagenes/menu.png">
+          </a>
+          <a href="#" class="navbar__menu navbar__menu--second">
+              <img class="navbar__icon" src="/imagenes/cancelar.png">
+          </a>
+          <ul class="navbar__group" id="menu">
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'index'%}">Inicio</a>
+              </li>
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'acercaDe'%}">Acerca de</a>
+              </li>
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'contacto'%}">Contacto</a>
+              </li>
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'preguntas_frecuentes'%}">Preguntas Frecuentes</a>
+              </li>
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'usuarios' %}">Usuarios</a>
+              </li>
+              <li class="navbar__list">
+                  <a class="navbar__link" href="{% url 'formulario' %}">Formulario</a>
+              </li>
+          </ul>
+      </div>
+    </header>
+    <!-- Cabecera -->
+    <header class="masthead" style="background-image: url('{% block background %}{% endblock %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              {% block headers %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+      {% block content %}
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+      {% endblock %}
+
+      {% if request.path != '/'%}<hr>{% endif %}
+    <!-- Pié de página -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2020 · Carlos Arroyo Díaz (Ingeniero Informático) </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap y Javascripts -->
+    <script src="{% static 'core/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'core/js/clean-blog.min.js'%}"></script>
+
+  </body>
+
+</html>
